@@ -121,6 +121,53 @@
     .fact strong{font-size:1.02rem}
 
 
+
+    /* TRANSFER BAR */
+    .transfer-alert{
+      position:fixed;top:82px;left:50%;transform:translateX(-50%);z-index:45;
+      width:min(calc(100% - 28px),1120px);padding:10px 16px;border-radius:14px;
+      border:1px solid rgba(41,182,83,.28);background:rgba(11,84,40,.94);
+      box-shadow:0 10px 30px rgba(0,0,0,.28);backdrop-filter:blur(14px);
+      text-align:center;font-size:.78rem;font-weight:900;letter-spacing:.05em
+    }
+    .transfer-alert{overflow:hidden;white-space:nowrap;padding-left:0;padding-right:0}
+    .transfer-alert-track{
+      display:inline-block;min-width:100%;padding-left:100%;
+      animation:transferTicker 13s linear infinite;
+      will-change:transform
+    }
+    .transfer-alert span{color:#bff5cd}
+    .transfer-alert:hover{background:rgba(25,134,61,.96)}
+    .transfer-alert:hover .transfer-alert-track{animation-play-state:paused}
+    @keyframes transferTicker{
+      from{transform:translateX(0)}
+      to{transform:translateX(-100%)}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .transfer-alert-track{animation:none;padding-left:0}
+    }
+
+    /* RESULTS */
+    .results-list{display:grid;gap:34px}
+    .results-month{display:grid;gap:16px}
+    .results-month-title{
+      display:flex;align-items:center;gap:14px;color:var(--green-2);
+      font-size:.8rem;font-weight:950;letter-spacing:.14em;text-transform:uppercase
+    }
+    .results-month-title:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line),transparent)}
+    .result-card{
+      display:grid;grid-template-columns:150px minmax(0,1fr) 110px;align-items:center;gap:24px;
+      padding:24px 28px;border:1px solid var(--line);border-radius:22px;
+      background:linear-gradient(145deg,#111913,#090c0a);box-shadow:0 18px 45px rgba(0,0,0,.22)
+    }
+    .result-date{color:var(--muted);font-size:.8rem;font-weight:800}
+    .result-main{display:grid;grid-template-columns:minmax(120px,1fr) 105px minmax(120px,1fr);align-items:center;gap:18px;width:100%}
+    .result-team{font-size:1.05rem;font-weight:900;text-align:center}
+    .result-score{min-width:105px;text-align:center;font-size:2rem;font-weight:1000;letter-spacing:0}
+    .result-status{min-width:92px;text-align:center;padding:8px 11px;border-radius:999px;font-size:.72rem;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+    .result-status.win{color:#7ff09d;background:rgba(41,182,83,.12);border:1px solid rgba(41,182,83,.28)}
+    .result-status.loss{color:#ff9b9b;background:rgba(255,80,80,.08);border:1px solid rgba(255,80,80,.22)}
+
     /* NEWS */
     .news-feature{
       display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden;
@@ -261,6 +308,10 @@
       .links.open{display:flex}
       .menu{display:block}
       .hero-grid,.about-grid,.kit-grid,.transfer-grid,.join-grid,.squad-grid,.news-feature{grid-template-columns:1fr}
+      .result-card{grid-template-columns:1fr;text-align:center;gap:12px}
+      .result-main{grid-template-columns:1fr;gap:6px}
+      .result-score{justify-self:center}
+      .result-status{justify-self:center}
       .hero{padding-top:130px}
       .crest-card{justify-self:start;width:280px}
       .pitch{min-height:620px}
@@ -270,7 +321,8 @@
     @media(max-width:620px){
       .container{width:min(calc(100% - 24px),var(--max))}
       .section{padding:72px 0}
-      .hero{padding-top:115px}
+      .hero{padding-top:150px}
+      .transfer-alert{top:78px;font-size:.68rem;padding:9px 10px}
       .hero-copy h1{font-size:3.5rem}
       .hero-meta{gap:15px;flex-wrap:wrap}
       .stats-grid{grid-template-columns:1fr}
@@ -306,6 +358,7 @@
       <div class="links" id="navLinks">
         <a href="#klub">Klub</a>
         <a href="#aktualnosci">Aktualności</a>
+        <a href="#wyniki">Wyniki</a>
         <a href="#xi">Prime XI</a>
         <a href="#kadra">Kadra</a>
         <a href="#transfery">Transfery</a>
@@ -317,6 +370,10 @@
       <button class="menu" id="menuBtn" aria-label="Otwórz menu">☰</button>
     </nav>
   </div>
+
+  <a class="transfer-alert" href="#transfery">
+    <span class="transfer-alert-track">🚨 NOWE TRANSFERY &nbsp;•&nbsp; Oskar B. &nbsp;•&nbsp; Mateusz R. &nbsp;•&nbsp; Szymon P. &nbsp;→&nbsp; Osiedle F.C. &nbsp;&nbsp;&nbsp; 🟢⚫</span>
+  </a>
 
   <main id="top">
     <section class="hero">
@@ -397,6 +454,59 @@
             </div>
           </div>
         </article>
+      </div>
+    </section>
+
+
+    <section class="section" id="wyniki">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Mecze Osiedle F.C.</div>
+            <h2>Wyniki</h2>
+          </div>
+          <p>Ostatnie rozegrane spotkania zielono-czarnych.</p>
+        </div>
+
+        <div class="results-list">
+          <div class="results-month">
+            <div class="results-month-title">Maj 2026</div>
+
+            <article class="result-card">
+              <div class="result-date">14 maja 2026</div>
+              <div class="result-main">
+                <div class="result-team">Osiedle F.C.</div>
+                <div class="result-score">7 – 4</div>
+                <div class="result-team">FC Walczaki</div>
+              </div>
+              <div class="result-status win">Wygrana</div>
+            </article>
+
+            <article class="result-card">
+              <div class="result-date">14 maja 2026</div>
+              <div class="result-main">
+                <div class="result-team">Osiedle F.C.</div>
+                <div class="result-score">10 – 0</div>
+                <div class="result-team">FC No Name</div>
+              </div>
+              <div class="result-status win">Wygrana</div>
+            </article>
+          </div>
+
+          <div class="results-month">
+            <div class="results-month-title">Czerwiec 2026</div>
+
+            <article class="result-card">
+              <div class="result-date">13 czerwca 2026</div>
+              <div class="result-main">
+                <div class="result-team">Osiedle F.C.</div>
+                <div class="result-score">8 – 2</div>
+                <div class="result-team">SP11</div>
+              </div>
+              <div class="result-status loss">Porażka</div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
