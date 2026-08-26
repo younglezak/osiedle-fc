@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0d0c">
+  <meta name="description" content="Osiedle F.C. — klub z Kawodrzy Dolnej w Częstochowie, założony w 2022 roku.">
+  <title>Osiedle F.C. — Częstochowa</title>
+  <style>
+    :root{
+      --bg:#070908;
+      --panel:#0d120f;
+      --panel-2:#111813;
+      --green:#19863d;
+      --green-2:#29b653;
+      --green-dark:#0b5428;
+      --text:#f4f7f4;
+      --muted:#a7b1aa;
+      --line:rgba(41,182,83,.18);
+      --white:#fff;
+      --max:1180px;
+      --radius:24px;
+      --shadow:0 24px 70px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 80% 10%,rgba(25,134,61,.16),transparent 30%),
+        radial-gradient(circle at 15% 45%,rgba(25,134,61,.08),transparent 25%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .eyebrow{
+      color:var(--green-2);font-size:.78rem;font-weight:800;letter-spacing:.16em;
+      text-transform:uppercase;margin-bottom:10px
+    }
+    h1,h2,h3{line-height:1.05;letter-spacing:-.035em}
+    h2{font-size:clamp(2rem,4vw,3.35rem)}
+    .section{padding:100px 0}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+    .section-head p{max-width:500px;color:var(--muted)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:13px 18px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(255,255,255,.035);font-weight:800;transition:.25s ease;
+    }
+    .btn:hover{transform:translateY(-2px);background:rgba(41,182,83,.12);border-color:rgba(41,182,83,.5)}
+    .btn.primary{background:var(--green);border-color:var(--green);color:#fff}
+    .btn.primary:hover{background:var(--green-2)}
+
+    /* NAV */
+    .nav-wrap{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px 0}
+    nav{
+      width:min(calc(100% - 28px),1120px);margin:auto;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:10px 12px 10px 15px;border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;background:rgba(7,9,8,.72);backdrop-filter:blur(18px);
+      box-shadow:0 12px 40px rgba(0,0,0,.2)
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:950}
+    .brand img{width:40px;height:44px;object-fit:contain}
+    .brand span{font-size:.9rem;letter-spacing:.06em}
+    .links{display:flex;gap:4px}
+    .links a{padding:10px 12px;border-radius:10px;color:#cdd4cf;font-size:.86rem;font-weight:700}
+    .links a:hover{background:rgba(255,255,255,.06);color:#fff}
+    .menu{display:none;border:0;background:transparent;color:#fff;font-size:1.5rem}
+
+    /* HERO */
+    .hero{min-height:100vh;display:grid;place-items:center;position:relative;padding:140px 0 80px}
+    .hero:before{
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(7,9,8,.98) 0%,rgba(7,9,8,.72) 45%,rgba(7,9,8,.38) 100%);
+    }
+    .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:-1}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.55) saturate(.9);opacity:.6}
+    .hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0%,transparent 35%,rgba(7,9,8,.25) 100%)}
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px}
+    .hero-copy h1{font-size:clamp(3.5rem,8vw,7.8rem);font-weight:1000;text-transform:uppercase}
+    .hero-copy h1 span{color:var(--green-2)}
+    .hero-copy .lead{font-size:clamp(1rem,1.8vw,1.25rem);color:#c4cbc6;max-width:620px;margin:22px 0 28px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .crest-card{
+      justify-self:end;width:min(380px,90%);aspect-ratio:1/1;
+      display:grid;place-items:center;border-radius:38px;
+      background:linear-gradient(145deg,rgba(17,24,19,.9),rgba(5,7,6,.84));
+      border:1px solid rgba(41,182,83,.28);box-shadow:var(--shadow);
+      position:relative;overflow:hidden;
+    }
+    .crest-card:before{content:"";position:absolute;width:70%;height:70%;border-radius:50%;background:rgba(41,182,83,.16);filter:blur(45px)}
+    .crest-card img{width:72%;position:relative;filter:drop-shadow(0 18px 28px rgba(0,0,0,.55))}
+    .hero-meta{display:flex;gap:22px;margin-top:45px;color:var(--muted);font-size:.86rem}
+    .hero-meta strong{display:block;color:#fff;font-size:1.05rem}
+
+    /* STATS */
+    .stats{margin-top:-20px;position:relative;z-index:2}
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:22px;background:rgba(13,18,15,.85);overflow:hidden}
+    .stat{padding:26px 30px;border-right:1px solid var(--line)}
+    .stat:last-child{border-right:0}
+    .stat b{font-size:2rem;color:var(--green-2)}
+    .stat span{display:block;color:var(--muted);font-size:.88rem;margin-top:3px}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center}
+    .about-card{
+      border-radius:var(--radius);padding:38px;
+      background:linear-gradient(145deg,#101711,#090b0a);
+      border:1px solid var(--line);box-shadow:var(--shadow);position:relative;overflow:hidden
+    }
+    .about-card:after{content:"2022";position:absolute;right:-10px;bottom:-40px;font-size:10rem;font-weight:1000;color:rgba(41,182,83,.045)}
+    .about-card p{color:#bec7c0;font-size:1.04rem;position:relative;z-index:1}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:25px}
+    .fact{padding:17px;border:1px solid rgba(255,255,255,.07);border-radius:16px;background:rgba(255,255,255,.025)}
+    .fact small{display:block;color:var(--muted);margin-bottom:4px}
+    .fact strong{font-size:1.02rem}
+
+    /* XI */
+    .team-shell{border:1px solid var(--line);border-radius:30px;padding:28px;background:linear-gradient(180deg,#0d140f,#080a09)}
+    .pitch{
+      position:relative;min-height:700px;border-radius:22px;overflow:hidden;
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/25% 100%,
+        linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/100% 25%,
+        #12351f;
+      border:2px solid rgba(255,255,255,.18);
+    }
+    .pitch:before{content:"";position:absolute;inset:5%;border:2px solid rgba(255,255,255,.18);border-radius:2px}
+    .pitch:after{content:"";position:absolute;left:5%;right:5%;top:50%;border-top:2px solid rgba(255,255,255,.18)}
+    .circle{position:absolute;left:50%;top:50%;width:150px;height:150px;border:2px solid rgba(255,255,255,.18);border-radius:50%;transform:translate(-50%,-50%)}
+    .player{
+      position:absolute;transform:translate(-50%,-50%);z-index:3;text-align:center;width:150px
+    }
+    .dot{
+      width:48px;height:48px;border-radius:50%;margin:auto;
+      display:grid;place-items:center;background:var(--green-2);color:#071008;
+      border:4px solid #eaf4ed;box-shadow:0 8px 20px rgba(0,0,0,.35);font-weight:1000
+    }
+    .player span{display:block;margin-top:7px;font-size:.75rem;font-weight:900;text-shadow:0 2px 8px #000}
+    .player small{display:block;color:#d2ded5;font-size:.65rem;margin-top:1px}
+    .p-gk{left:50%;top:89%}.p-cb1{left:28%;top:71%}.p-cb2{left:50%;top:66%}.p-cb3{left:72%;top:71%}
+    .p-rm{left:87%;top:48%}.p-cm1{left:37%;top:46%}.p-cm2{left:63%;top:46%}.p-lm{left:13%;top:48%}
+    .p-lw{left:25%;top:20%}.p-st{left:50%;top:13%}.p-rw{left:75%;top:20%}
+    .legend{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.82rem;margin-top:22px}
+
+    /* KIT */
+    .kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch}
+    .kit-image{min-height:560px;border-radius:28px;overflow:hidden;border:1px solid var(--line);background:#050706;box-shadow:var(--shadow)}
+    .kit-image img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .kit-copy{padding:38px;border-radius:28px;border:1px solid var(--line);background:linear-gradient(145deg,#101610,#090b0a)}
+    .kit-copy h3{font-size:2rem;margin-bottom:13px}
+    .kit-copy p{color:var(--muted)}
+    .palette{display:flex;gap:12px;margin-top:28px}
+    .swatch{flex:1;height:100px;border-radius:18px;padding:13px;display:flex;align-items:end;font-weight:900}
+    .swatch.green{background:#19863d}.swatch.black{background:#070908;border:1px solid #303832}
+    .kit-note{margin-top:22px;padding:16px;border-left:3px solid var(--green-2);background:rgba(41,182,83,.07);color:#c8d2cb;border-radius:0 12px 12px 0}
+
+    /* HISTORY */
+    .timeline{position:relative;margin-top:25px}
+    .timeline:before{content:"";position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(var(--green-2),rgba(41,182,83,.08))}
+    .event{position:relative;padding:0 0 36px 65px}
+    .event:last-child{padding-bottom:0}
+    .event:before{content:"";position:absolute;left:11px;top:4px;width:20px;height:20px;border-radius:50%;background:var(--green-2);border:5px solid var(--bg);box-shadow:0 0 0 1px var(--green-2)}
+    .event .year{color:var(--green-2);font-weight:1000;font-size:.9rem;letter-spacing:.08em}
+    .event h3{font-size:1.35rem;margin:4px 0 7px}
+    .event p{color:var(--muted);max-width:720px}
+
+    /* FOOTER */
+    footer{padding:55px 0 28px;border-top:1px solid rgba(255,255,255,.07);background:#050605}
+    .footer-top{display:flex;justify-content:space-between;gap:30px;align-items:center}
+    .footer-brand{display:flex;align-items:center;gap:13px}
+    .footer-brand img{width:58px;height:65px;object-fit:contain}
+    .footer-brand strong{font-size:1.05rem}
+    .footer-brand small{display:block;color:var(--muted)}
+    .footer-bottom{margin-top:35px;padding-top:18px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;color:#737c76;font-size:.75rem}
+
+    @media(max-width:900px){
+      .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;padding:10px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:#0a0d0b}
+      .links.open{display:flex}
+      .menu{display:block}
+      .hero-grid,.about-grid,.kit-grid{grid-template-columns:1fr}
+      .hero{padding-top:130px}
+      .crest-card{justify-self:start;width:280px}
+      .pitch{min-height:620px}
+      .player{width:115px}
+      .dot{width:42px;height:42px}
+    }
+    @media(max-width:620px){
+      .container{width:min(calc(100% - 24px),var(--max))}
+      .section{padding:72px 0}
+      .hero{padding-top:115px}
+      .hero-copy h1{font-size:3.5rem}
+      .hero-meta{gap:15px;flex-wrap:wrap}
+      .stats-grid{grid-template-columns:1fr}
+      .stat{border-right:0;border-bottom:1px solid var(--line)}
+      .stat:last-child{border-bottom:0}
+      .section-head{display:block}
+      .section-head p{margin-top:14px}
+      .facts{grid-template-columns:1fr}
+      .team-shell{padding:10px}
+      .pitch{min-height:570px}
+      .player{width:86px}
+      .player span{font-size:.61rem}
+      .player small{font-size:.55rem}
+      .dot{width:36px;height:36px;border-width:3px;font-size:.72rem}
+      .circle{width:110px;height:110px}
+      .p-rm{left:89%}.p-lm{left:11%}
+      .kit-image{min-height:430px}
+      .kit-copy{padding:25px}
+      .footer-top,.footer-bottom{display:block}
+      .footer-bottom span{display:block;margin-top:8px}
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav>
+      <a class="brand" href="#top">
+        <img src="assets/crest.jpg" alt="Herb Osiedle F.C.">
+        <span>OSIEDLE F.C.</span>
+      </a>
+      <div class="links" id="navLinks">
+        <a href="#klub">Klub</a>
+        <a href="#xi">Prime XI</a>
+        <a href="#stroj">Stroje</a>
+        <a href="#historia">Historia</a>
+      </div>
+      <button class="menu" id="menuBtn" aria-label="Otwórz menu">☰</button>
+    </nav>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-bg"><img src="assets/home-kit.jpg" alt=""></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Kawodrza Dolna • Częstochowa • 2022</div>
+          <h1>Osiedle<br><span>F.C.</span></h1>
+          <p class="lead">Zielono-czarna drużyna z Częstochowy. Klub z osiedla, z własnym charakterem i historią budowaną od 2022 roku.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#xi">Poznaj Prime XI →</a>
+            <a class="btn" href="#historia">Nasza historia</a>
+          </div>
+          <div class="hero-meta">
+            <div><strong>2022</strong>rok założenia</div>
+            <div><strong>Kawodrza Dolna</strong>dzielnica</div>
+            <div><strong>🟢⚫</strong>barwy klubu</div>
+          </div>
+        </div>
+        <div class="crest-card">
+          <img src="assets/crest.jpg" alt="Herb Osiedle F.C. Częstochowa">
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat"><b>2022</b><span>Rok powstania Osiedle F.C.</span></div>
+          <div class="stat"><b>11</b><span>Zawodników w historycznym Prime XI</span></div>
+          <div class="stat"><b>🟢⚫</b><span>Zielono-czarne DNA klubu</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="klub">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow">Kim jesteśmy</div>
+          <h2>Klub z osiedla.<br>Charakter na boisku.</h2>
+        </div>
+        <div class="about-card">
+          <p>Osiedle F.C. powstało w 2022 roku na Kawodrzy Dolnej w Częstochowie. Od początku klub budowany jest wokół prostych wartości: wspólnoty, ambicji i grania po swojemu. Zielono-czarne barwy są znakiem rozpoznawczym drużyny, a herb łączy piłkę, panoramę miasta i lokalną tożsamość.</p>
+          <div class="facts">
+            <div class="fact"><small>Lokalizacja</small><strong>Kawodrza Dolna</strong></div>
+            <div class="fact"><small>Miasto</small><strong>Częstochowa</strong></div>
+            <div class="fact"><small>Założony</small><strong>2022</strong></div>
+            <div class="fact"><small>Kolory</small><strong>Zielony / Czarny</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="xi">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Historyczny skład</div><h2>Prime XI</h2></div>
+          <p>Jedenastka ustawiona w systemie z trójką środkowych obrońców, wahadłami i trójką ofensywną.</p>
+        </div>
+        <div class="team-shell">
+          <div class="pitch">
+            <div class="circle"></div>
+            <div class="player p-gk"><div class="dot">1</div><span>Damian Matysiak</span><small>BRAMKARZ</small></div>
+            <div class="player p-cb1"><div class="dot">2</div><span>Szymon Pydzik</span><small>ŚO</small></div>
+            <div class="player p-cb2"><div class="dot">3</div><span>Daniel Pędzik</span><small>ŚO</small></div>
+            <div class="player p-cb3"><div class="dot">4</div><span>Przemek Michalik</span><small>ŚO</small></div>
+            <div class="player p-rm"><div class="dot">5</div><span>Jakub Piekarz</span><small>PRAWE WAHADŁO</small></div>
+            <div class="player p-cm1"><div class="dot">6</div><span>Kacper Krzyszkowski</span><small>ŚP</small></div>
+            <div class="player p-cm2"><div class="dot">8</div><span>Oskar Biurkowski</span><small>ŚP</small></div>
+            <div class="player p-lm"><div class="dot">7</div><span>Filip Gaudy</span><small>LEWE WAHADŁO</small></div>
+            <div class="player p-lw"><div class="dot">11</div><span>Wojciech Roznowski</span><small>LEWE SKRZYDŁO</small></div>
+            <div class="player p-st"><div class="dot">9</div><span>Mateusz Roznowski</span><small>NAPASTNIK</small></div>
+            <div class="player p-rw"><div class="dot">10</div><span>Fabian Bejm</span><small>PRAWE SKRZYDŁO</small></div>
+          </div>
+          <div class="legend">🟢 Bramkarz &nbsp;•&nbsp; 🟢 Trójka obrońców &nbsp;•&nbsp; 🟢 Wahadła &nbsp;•&nbsp; 🟢 Pomoc &nbsp;•&nbsp; 🟢 Atak</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stroj">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Tożsamość</div><h2>Domowe barwy</h2></div>
+          <p>Czerń daje bazę, a głęboka zieleń wyciąga charakter herbu i tworzy mocny, nowoczesny wygląd.</p>
+        </div>
+        <div class="kit-grid">
+          <div class="kit-image"><img src="assets/home-kit.jpg" alt="Domowy strój Osiedle F.C."></div>
+          <div class="kit-copy">
+            <h3>Domowy 2026</h3>
+            <p>Wzór oparty na czarnym fundamencie z dynamiczną zieloną grafiką. Białe elementy — herb, logo Joma i sponsor — tworzą mocny kontrast i zachowują czytelność.</p>
+            <div class="palette">
+              <div class="swatch green">ZIELONY</div>
+              <div class="swatch black">CZARNY</div>
+            </div>
+            <div class="kit-note"><strong>Klubowe DNA:</strong> zielony + czarny, Częstochowa i Kawodrza Dolna.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="historia">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Od początku</div><h2>Historia Osiedle F.C.</h2></div>
+          <p>Krótka oś czasu najważniejszych punktów w historii klubu.</p>
+        </div>
+        <div class="timeline">
+          <article class="event">
+            <div class="year">2022</div>
+            <h3>Początek na Kawodrzy Dolnej</h3>
+            <p>Powstaje Osiedle F.C. — lokalny klub z Częstochowy, którego tożsamość od pierwszego dnia opiera się na zielono-czarnych barwach.</p>
+          </article>
+          <article class="event">
+            <div class="year">PIERWSZE LATA</div>
+            <h3>Budowanie własnego charakteru</h3>
+            <p>Drużyna tworzy swój styl, skład i klubową kulturę. Coraz mocniej wybrzmiewa idea, że Osiedle F.C. ma być czymś więcej niż tylko nazwą na koszulce.</p>
+          </article>
+          <article class="event">
+            <div class="year">PRIME XI</div>
+            <h3>Jedenastka, która zapisała się w historii</h3>
+            <p>Damian Matysiak, Szymon Pydzik, Daniel Pędzik, Przemek Michalik, Jakub Piekarz, Kacper Krzyszkowski, Oskar Biurkowski, Filip Gaudy, Wojciech Roznowski, Mateusz Roznowski i Fabian Bejm tworzą historyczny skład klubu.</p>
+          </article>
+          <article class="event">
+            <div class="year">DZISIAJ</div>
+            <h3>Zielono-czarna tożsamość trwa</h3>
+            <p>Osiedle F.C. pozostaje klubem zakorzenionym lokalnie — w Kawodrzy Dolnej, w Częstochowie i w ludziach, którzy tworzą jego historię.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/crest.jpg" alt="Herb Osiedle F.C.">
+          <div><strong>OSIEDLE F.C.</strong><small>Kawodrza Dolna • Częstochowa</small></div>
+        </div>
+        <a class="btn primary" href="#top">↑ Na górę</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2022–2026 Osiedle F.C.</span>
+        <span>Zielono-czarna rodzina.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    document.querySelectorAll('.links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  </script>
+</body>
+</html>
