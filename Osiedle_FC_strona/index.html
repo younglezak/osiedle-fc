@@ -174,6 +174,21 @@
     .swatch.green{background:#19863d}.swatch.black{background:#070908;border:1px solid #303832}
     .kit-note{margin-top:22px;padding:16px;border-left:3px solid var(--green-2);background:rgba(41,182,83,.07);color:#c8d2cb;border-radius:0 12px 12px 0}
 
+
+    /* JOIN + CONTACT */
+    .join-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
+    .join-card,.contact-card{padding:34px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(145deg,#101711,#090b0a);box-shadow:var(--shadow)}
+    .join-card h3,.contact-card h3{font-size:1.7rem;margin-bottom:12px}
+    .join-card p,.contact-card p{color:var(--muted)}
+    .join-list{display:grid;gap:10px;margin:24px 0}
+    .join-step{display:flex;gap:13px;align-items:center;padding:13px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06)}
+    .join-step b{width:30px;height:30px;flex:0 0 30px;border-radius:50%;display:grid;place-items:center;background:var(--green);font-size:.8rem}
+    .contact-links{display:grid;gap:12px;margin-top:24px}
+    .contact-link{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:17px;border:1px solid rgba(255,255,255,.07);border-radius:16px;background:rgba(255,255,255,.025);transition:.25s ease}
+    .contact-link:hover{transform:translateY(-2px);border-color:rgba(41,182,83,.5);background:rgba(41,182,83,.08)}
+    .contact-link small{display:block;color:var(--muted)}
+    .contact-link strong{word-break:break-word}
+
     /* HISTORY */
     .timeline{position:relative;margin-top:25px}
     .timeline:before{content:"";position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(var(--green-2),rgba(41,182,83,.08))}
@@ -197,7 +212,7 @@
       .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;padding:10px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:#0a0d0b}
       .links.open{display:flex}
       .menu{display:block}
-      .hero-grid,.about-grid,.kit-grid,.transfer-grid{grid-template-columns:1fr}
+      .hero-grid,.about-grid,.kit-grid,.transfer-grid,.join-grid{grid-template-columns:1fr}
       .hero{padding-top:130px}
       .crest-card{justify-self:start;width:280px}
       .pitch{min-height:620px}
@@ -244,6 +259,8 @@
         <a href="#transfery">Transfery</a>
         <a href="#stroj">Stroje</a>
         <a href="#historia">Historia</a>
+        <a href="#dolacz">Dołącz</a>
+        <a href="#kontakt">Kontakt</a>
       </div>
       <button class="menu" id="menuBtn" aria-label="Otwórz menu">☰</button>
     </nav>
@@ -310,17 +327,17 @@
         <div class="team-shell">
           <div class="pitch">
             <div class="circle"></div>
-            <div class="player p-gk"><div class="dot">1</div><span>Damian Matysiak</span><small>BRAMKARZ</small></div>
-            <div class="player p-cb1"><div class="dot">2</div><span>Szymon Pydzik</span><small>ŚO</small></div>
-            <div class="player p-cb2"><div class="dot">3</div><span>Daniel Pędzik</span><small>ŚO</small></div>
-            <div class="player p-cb3"><div class="dot">4</div><span>Przemek Michalik</span><small>ŚO</small></div>
-            <div class="player p-rm"><div class="dot">5</div><span>Jakub Piekarz</span><small>PRAWE WAHADŁO</small></div>
-            <div class="player p-cm1"><div class="dot">6</div><span>Kacper Krzyszkowski</span><small>ŚP</small></div>
-            <div class="player p-cm2"><div class="dot">8</div><span>Oskar Biurkowski</span><small>ŚP</small></div>
-            <div class="player p-lm"><div class="dot">7</div><span>Filip Gaudy</span><small>LEWE WAHADŁO</small></div>
-            <div class="player p-lw"><div class="dot">11</div><span>Wojciech Roznowski</span><small>LEWE SKRZYDŁO</small></div>
-            <div class="player p-st"><div class="dot">9</div><span>Mateusz Roznowski</span><small>NAPASTNIK</small></div>
-            <div class="player p-rw"><div class="dot">10</div><span>Fabian Bejm</span><small>PRAWE SKRZYDŁO</small></div>
+            <div class="player p-gk"><div class="dot">1</div><span>Damian M.</span><small>BRAMKARZ</small></div>
+            <div class="player p-cb1"><div class="dot">2</div><span>Szymon P.</span><small>ŚO</small></div>
+            <div class="player p-cb2"><div class="dot">3</div><span>Daniel P.</span><small>ŚO</small></div>
+            <div class="player p-cb3"><div class="dot">4</div><span>Przemek M.</span><small>ŚO</small></div>
+            <div class="player p-rm"><div class="dot">5</div><span>Jakub P.</span><small>PRAWE WAHADŁO</small></div>
+            <div class="player p-cm1"><div class="dot">6</div><span>Kacper K.</span><small>ŚP</small></div>
+            <div class="player p-cm2"><div class="dot">8</div><span>Oskar B.</span><small>ŚP</small></div>
+            <div class="player p-lm"><div class="dot">7</div><span>Filip G.</span><small>LEWE WAHADŁO</small></div>
+            <div class="player p-lw"><div class="dot">11</div><span>Wojciech R.</span><small>LEWE SKRZYDŁO</small></div>
+            <div class="player p-st"><div class="dot">9</div><span>Mateusz R.</span><small>NAPASTNIK</small></div>
+            <div class="player p-rw"><div class="dot">10</div><span>Fabian B.</span><small>PRAWE SKRZYDŁO</small></div>
           </div>
           <div class="legend">🟢 Bramkarz &nbsp;•&nbsp; 🟢 Trójka obrońców &nbsp;•&nbsp; 🟢 Wahadła &nbsp;•&nbsp; 🟢 Pomoc &nbsp;•&nbsp; 🟢 Atak</div>
         </div>
@@ -347,7 +364,7 @@
           <div class="kit-image"><img src="assets/home-kit.jpg" alt="Domowy strój Osiedle F.C."></div>
           <div class="kit-copy">
             <h3>Domowy 2026</h3>
-            <p>Wzór oparty na czarnym fundamencie z dynamiczną zieloną grafiką. Białe elementy — herb, logo Joma i sponsor — tworzą mocny kontrast i zachowują czytelność.</p>
+            <p>Wzór oparty na czarnym fundamencie z dynamiczną zieloną grafiką. Białe elementy — herb i detale stroju — tworzą mocny kontrast i zachowują czytelność.</p>
             <div class="palette">
               <div class="swatch green">ZIELONY</div>
               <div class="swatch black">CZARNY</div>
@@ -378,7 +395,7 @@
           <article class="event">
             <div class="year">PRIME XI</div>
             <h3>Jedenastka, która zapisała się w historii</h3>
-            <p>Damian Matysiak, Szymon Pydzik, Daniel Pędzik, Przemek Michalik, Jakub Piekarz, Kacper Krzyszkowski, Oskar Biurkowski, Filip Gaudy, Wojciech Roznowski, Mateusz Roznowski i Fabian Bejm tworzą historyczny skład klubu.</p>
+            <p>Damian M., Szymon P., Daniel P., Przemek M., Jakub P., Kacper K., Oskar B., Filip G., Wojciech R., Mateusz R. i Fabian B. tworzą historyczny skład klubu.</p>
           </article>
           <article class="event">
             <div class="year">DZISIAJ</div>
@@ -388,6 +405,56 @@
         </div>
       </div>
     </section>
+
+    <section class="section" id="dolacz">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Zagraj z nami</div><h2>Dołącz do Osiedle F.C.</h2></div>
+          <p>Chcesz zagrać w zielono-czarnych barwach? Odezwij się do nas i napisz kilka słów o sobie.</p>
+        </div>
+        <div class="join-grid">
+          <div class="join-card">
+            <div class="eyebrow">Nabór do drużyny</div>
+            <h3>Zostań częścią Osiedle F.C.</h3>
+            <p>Najłatwiej napisać do nas na Instagramie lub e-mailu. W pierwszej wiadomości wystarczy kilka podstawowych informacji.</p>
+            <div class="join-list">
+              <div class="join-step"><b>1</b><span>Podaj swoje imię i rocznik.</span></div>
+              <div class="join-step"><b>2</b><span>Napisz, na jakiej pozycji najczęściej grasz.</span></div>
+              <div class="join-step"><b>3</b><span>Krótko opisz swoje doświadczenie piłkarskie.</span></div>
+            </div>
+            <div class="hero-actions">
+              <a class="btn primary" href="https://www.instagram.com/osiedle.f.c/" target="_blank" rel="noopener noreferrer">Napisz na Instagramie →</a>
+              <a class="btn" href="mailto:osiedlefck@gmail.com?subject=Chcę%20dołączyć%20do%20Osiedle%20F.C.">Napisz e-mail</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="eyebrow">Osiedle F.C.</div>
+            <h3>Kontakt</h3>
+            <p>Masz pytanie dotyczące drużyny, chcesz dołączyć albo skontaktować się z nami w innej sprawie? Napisz bezpośrednio.</p>
+            <div class="contact-links">
+              <a class="contact-link" href="https://www.instagram.com/osiedle.f.c/" target="_blank" rel="noopener noreferrer"><div><small>Instagram</small><strong>@osiedle.f.c</strong></div><span>→</span></a>
+              <a class="contact-link" href="mailto:osiedlefck@gmail.com"><div><small>E-mail</small><strong>osiedlefck@gmail.com</strong></div><span>→</span></a>
+              <div class="contact-link"><div><small>Lokalizacja</small><strong>Kawodrza Dolna, Częstochowa</strong></div><span>🟢⚫</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kontakt">
+      <div class="container">
+        <div class="about-card">
+          <div class="eyebrow">Kontakt z klubem</div>
+          <h2 style="font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:14px">Masz sprawę do Osiedle F.C.?</h2>
+          <p>Najszybciej złapiesz nas przez Instagram <strong>@osiedle.f.c</strong> albo e-mail <strong>osiedlefck@gmail.com</strong>.</p>
+          <div class="hero-actions" style="margin-top:24px;position:relative;z-index:2">
+            <a class="btn primary" href="https://www.instagram.com/osiedle.f.c/" target="_blank" rel="noopener noreferrer">Instagram →</a>
+            <a class="btn" href="mailto:osiedlefck@gmail.com">osiedlefck@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
