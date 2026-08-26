@@ -149,6 +149,33 @@
     .legend{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.82rem;margin-top:22px}
 
 
+
+    /* KADRA */
+    .squad-groups{display:grid;gap:34px}
+    .squad-group-title{
+      display:flex;align-items:center;gap:12px;margin-bottom:16px;
+      font-size:.82rem;font-weight:950;letter-spacing:.14em;text-transform:uppercase;color:var(--green-2)
+    }
+    .squad-group-title:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line),transparent)}
+    .squad-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .squad-card{
+      position:relative;overflow:hidden;min-height:150px;padding:25px;border-radius:22px;
+      border:1px solid var(--line);background:linear-gradient(145deg,#111913,#090c0a);
+      box-shadow:0 18px 45px rgba(0,0,0,.24);display:flex;align-items:center;gap:20px;transition:.25s ease
+    }
+    .squad-card:hover{transform:translateY(-3px);border-color:rgba(41,182,83,.48)}
+    .squad-number{
+      width:76px;height:76px;flex:0 0 76px;border-radius:20px;display:grid;place-items:center;
+      background:var(--green);color:#fff;font-size:1.75rem;font-weight:1000;
+      box-shadow:0 12px 28px rgba(25,134,61,.22)
+    }
+    .squad-info small{display:block;color:var(--green-2);font-size:.7rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+    .squad-info h3{font-size:1.65rem}
+    .squad-card:after{
+      content:attr(data-number);position:absolute;right:-6px;bottom:-45px;
+      font-size:9rem;font-weight:1000;color:rgba(41,182,83,.04);line-height:1
+    }
+
     /* TRANSFERS */
     .transfer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .transfer-card{position:relative;overflow:hidden;padding:28px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(145deg,#111913,#090c0a);box-shadow:0 18px 45px rgba(0,0,0,.28);transition:.25s ease}
@@ -212,7 +239,7 @@
       .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;padding:10px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:#0a0d0b}
       .links.open{display:flex}
       .menu{display:block}
-      .hero-grid,.about-grid,.kit-grid,.transfer-grid,.join-grid{grid-template-columns:1fr}
+      .hero-grid,.about-grid,.kit-grid,.transfer-grid,.join-grid,.squad-grid{grid-template-columns:1fr}
       .hero{padding-top:130px}
       .crest-card{justify-self:start;width:280px}
       .pitch{min-height:620px}
@@ -256,6 +283,7 @@
       <div class="links" id="navLinks">
         <a href="#klub">Klub</a>
         <a href="#xi">Prime XI</a>
+        <a href="#kadra">Kadra</a>
         <a href="#transfery">Transfery</a>
         <a href="#stroj">Stroje</a>
         <a href="#historia">Historia</a>
@@ -340,6 +368,61 @@
             <div class="player p-rw"><div class="dot">10</div><span>Fabian B.</span><small>PRAWE SKRZYDŁO</small></div>
           </div>
           <div class="legend">🟢 Bramkarz &nbsp;•&nbsp; 🟢 Trójka obrońców &nbsp;•&nbsp; 🟢 Wahadła &nbsp;•&nbsp; 🟢 Pomoc &nbsp;•&nbsp; 🟢 Atak</div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="kadra">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Pierwsza drużyna</div>
+            <h2>Kadra</h2>
+          </div>
+          <p>Aktualna kadra Osiedle F.C. z podziałem na formacje i numerami zawodników.</p>
+        </div>
+
+        <div class="squad-groups">
+          <div>
+            <div class="squad-group-title">Napastnicy</div>
+            <div class="squad-grid">
+              <article class="squad-card" data-number="16">
+                <div class="squad-number">#16</div>
+                <div class="squad-info">
+                  <small>Napastnik</small>
+                  <h3>Mateusz R.</h3>
+                </div>
+              </article>
+              <article class="squad-card" data-number="17">
+                <div class="squad-number">#17</div>
+                <div class="squad-info">
+                  <small>Napastnik</small>
+                  <h3>Wojciech R.</h3>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div>
+            <div class="squad-group-title">Pomocnicy</div>
+            <div class="squad-grid">
+              <article class="squad-card" data-number="14">
+                <div class="squad-number">#14</div>
+                <div class="squad-info">
+                  <small>Pomocnik</small>
+                  <h3>Fabian B.</h3>
+                </div>
+              </article>
+              <article class="squad-card" data-number="99">
+                <div class="squad-number">#99</div>
+                <div class="squad-info">
+                  <small>Pomocnik</small>
+                  <h3>Oskar B.</h3>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
