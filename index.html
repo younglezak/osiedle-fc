@@ -120,6 +120,27 @@
     .fact small{display:block;color:var(--muted);margin-bottom:4px}
     .fact strong{font-size:1.02rem}
 
+
+    /* NEWS */
+    .news-feature{
+      display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden;
+      border:1px solid var(--line);border-radius:30px;
+      background:linear-gradient(145deg,#101711,#080b09);box-shadow:var(--shadow)
+    }
+    .news-image{min-height:560px;position:relative;overflow:hidden;background:#050706}
+    .news-image img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .news-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,rgba(8,11,9,.65))}
+    .news-copy{padding:46px;display:flex;flex-direction:column;justify-content:center}
+    .news-badge{
+      align-self:flex-start;padding:7px 11px;margin-bottom:20px;border-radius:999px;
+      background:rgba(41,182,83,.11);border:1px solid rgba(41,182,83,.28);
+      color:var(--green-2);font-size:.72rem;font-weight:950;letter-spacing:.11em;text-transform:uppercase
+    }
+    .news-copy h3{font-size:clamp(2.15rem,4vw,4rem);margin-bottom:18px}
+    .news-copy p{color:#bec7c0;font-size:1.02rem}
+    .news-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+    .news-meta span{padding:9px 12px;border-radius:12px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);color:#cbd4cd;font-size:.8rem;font-weight:800}
+
     /* XI */
     .team-shell{border:1px solid var(--line);border-radius:30px;padding:28px;background:linear-gradient(180deg,#0d140f,#080a09)}
     .pitch{
@@ -239,7 +260,7 @@
       .links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;padding:10px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:#0a0d0b}
       .links.open{display:flex}
       .menu{display:block}
-      .hero-grid,.about-grid,.kit-grid,.transfer-grid,.join-grid,.squad-grid{grid-template-columns:1fr}
+      .hero-grid,.about-grid,.kit-grid,.transfer-grid,.join-grid,.squad-grid,.news-feature{grid-template-columns:1fr}
       .hero{padding-top:130px}
       .crest-card{justify-self:start;width:280px}
       .pitch{min-height:620px}
@@ -267,6 +288,8 @@
       .circle{width:110px;height:110px}
       .p-rm{left:89%}.p-lm{left:11%}
       .kit-image{min-height:430px}
+      .news-image{min-height:420px}
+      .news-copy{padding:26px}
       .kit-copy{padding:25px}
       .footer-top,.footer-bottom{display:block}
       .footer-bottom span{display:block;margin-top:8px}
@@ -282,6 +305,7 @@
       </a>
       <div class="links" id="navLinks">
         <a href="#klub">Klub</a>
+        <a href="#aktualnosci">Aktualności</a>
         <a href="#xi">Prime XI</a>
         <a href="#kadra">Kadra</a>
         <a href="#transfery">Transfery</a>
@@ -343,6 +367,36 @@
             <div class="fact"><small>Kolory</small><strong>Zielony / Czarny</strong></div>
           </div>
         </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="aktualnosci">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Najnowsze z klubu</div>
+            <h2>Aktualności</h2>
+          </div>
+          <p>Transfery, informacje z drużyny i najważniejsze wydarzenia z życia Osiedle F.C.</p>
+        </div>
+
+        <article class="news-feature">
+          <div class="news-image">
+            <img src="assets/ferro-transfer.png" alt="Ferro nowym zawodnikiem Osiedle F.C.">
+          </div>
+          <div class="news-copy">
+            <div class="news-badge">Transfer</div>
+            <h3>Ferro nowym zawodnikiem Osiedle F.C.</h3>
+            <p>Oskar B., występujący jako Ferro, dołącza do zielono-czarnych jako wolny zawodnik. Nowy pomocnik Osiedle F.C. będzie występował z numerem 99.</p>
+            <div class="news-meta">
+              <span>Oskar B.</span>
+              <span>Pomocnik</span>
+              <span>#99</span>
+              <span>2026</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
