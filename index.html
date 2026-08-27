@@ -167,6 +167,40 @@
     .result-status{min-width:92px;text-align:center;padding:8px 11px;border-radius:999px;font-size:.72rem;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
     .result-status.win{color:#7ff09d;background:rgba(41,182,83,.12);border:1px solid rgba(41,182,83,.28)}
     .result-status.loss{color:#ff9b9b;background:rgba(255,80,80,.08);border:1px solid rgba(255,80,80,.22)}
+    .match-details{
+      border:1px solid var(--line);border-radius:22px;
+      background:linear-gradient(145deg,#111913,#090c0a);
+      box-shadow:0 18px 45px rgba(0,0,0,.22);overflow:hidden
+    }
+    .match-details summary{list-style:none;cursor:pointer}
+    .match-details summary::-webkit-details-marker{display:none}
+    .match-details .result-card{
+      border:0;border-radius:0;background:transparent;box-shadow:none;
+      position:relative;padding-right:58px
+    }
+    .match-details .result-card:after{
+      content:"＋";position:absolute;right:22px;top:50%;transform:translateY(-50%);
+      color:var(--green-2);font-size:1.25rem;font-weight:900
+    }
+    .match-details[open] .result-card:after{content:"−"}
+    .match-details-body{padding:0 28px 24px;border-top:1px solid rgba(255,255,255,.06)}
+    .match-details-title{
+      padding:18px 0 14px;color:var(--green-2);font-size:.76rem;
+      font-weight:950;letter-spacing:.12em;text-transform:uppercase
+    }
+    .match-player-list{display:grid;gap:10px}
+    .match-player{
+      display:grid;grid-template-columns:1.2fr auto auto auto;align-items:center;gap:12px;
+      padding:13px 15px;border:1px solid rgba(255,255,255,.06);
+      border-radius:14px;background:rgba(255,255,255,.025)
+    }
+    .match-player strong{font-size:.95rem}
+    .match-stat{color:#c8d2cb;font-size:.8rem;white-space:nowrap}
+    .match-rating{
+      min-width:46px;text-align:center;padding:6px 9px;border-radius:10px;
+      background:rgba(41,182,83,.12);border:1px solid rgba(41,182,83,.22);
+      color:#8ef0a6;font-size:.8rem;font-weight:950
+    }
 
     /* NEWS */
     .news-feature{
@@ -354,6 +388,16 @@
       .p-rm{left:89%}.p-lm{left:11%}
       .kit-image{min-height:430px}
       .news-image{min-height:420px}
+      .news-feature.secondary .news-image{min-height:auto;background:#050706}
+      .news-feature.secondary .news-image img{
+        width:100%;height:auto;max-height:none;object-fit:contain;object-position:center
+      }
+      .older-news-content{padding:0 10px 10px}
+      .match-details .result-card{padding-right:46px}
+      .match-details-body{padding:0 14px 16px}
+      .match-player{grid-template-columns:1fr 1fr;gap:8px;text-align:left}
+      .match-player strong{grid-column:1/-1}
+      .match-rating{justify-self:end}
       .news-copy{padding:26px}
       .kit-copy{padding:25px}
       .footer-top,.footer-bottom{display:block}
@@ -453,7 +497,9 @@
 
         <div class="news-list">
           <article class="news-feature">
-            <div class="news-image"><img src="assets/qyati-transfer.png" alt="Qyati nowym zawodnikiem Osiedle F.C."></div>
+            <div class="news-image">
+              <img src="assets/qyati-transfer.png" alt="Qyati nowym zawodnikiem Osiedle F.C.">
+            </div>
             <div class="news-copy">
               <div class="news-badge">Najnowsze • Transfer</div>
               <h3>Qyati nowym zawodnikiem Osiedle F.C.</h3>
@@ -467,22 +513,23 @@
             <summary>Starsze aktualności</summary>
             <div class="older-news-content">
               <article class="news-feature secondary">
-
-          <div class="news-image">
-            <img src="assets/ferro-transfer.png" alt="Ferro nowym zawodnikiem Osiedle F.C.">
-          </div>
-          <div class="news-copy">
-            <div class="news-badge">Transfer</div>
-            <h3>Ferro nowym zawodnikiem Osiedle F.C.</h3>
-            <p>Oskar B., występujący jako Ferro, dołącza do zielono-czarnych jako wolny zawodnik. Nowy pomocnik Osiedle F.C. będzie występował z numerem 99.</p>
-            <div class="news-meta">
-              <span>Oskar B.</span>
-              <span>Pomocnik</span>
-              <span>#99</span>
-              <span>2026</span>
+                <div class="news-image">
+                  <img src="assets/ferro-transfer.png" alt="Ferro nowym zawodnikiem Osiedle F.C.">
+                </div>
+                <div class="news-copy">
+                  <div class="news-badge">Transfer</div>
+                  <h3>Ferro nowym zawodnikiem Osiedle F.C.</h3>
+                  <p>Oskar B., występujący jako Ferro, dołącza do zielono-czarnych jako wolny zawodnik. Nowy pomocnik Osiedle F.C. będzie występował z numerem 99.</p>
+                  <div class="news-meta">
+                    <span>Oskar B.</span>
+                    <span>Pomocnik</span>
+                    <span>#99</span>
+                  </div>
+                  <div class="news-date">26.08.2026</div>
+                </div>
+              </article>
             </div>
-          </div>
-        </article>
+          </details>
         </div>
       </div>
     </section>
@@ -502,39 +549,102 @@
           <div class="results-month">
             <div class="results-month-title">Maj 2026</div>
 
-            <article class="result-card">
-              <div class="result-date">14 maja 2026</div>
-              <div class="result-main">
-                <div class="result-team">Osiedle F.C.</div>
-                <div class="result-score">7 – 4</div>
-                <div class="result-team">FC Walczaki</div>
+            <details class="match-details">
+              <summary class="result-card">
+                <div class="result-date">14 maja 2026</div>
+                <div class="result-main">
+                  <div class="result-team">Osiedle F.C.</div>
+                  <div class="result-score">7 – 4</div>
+                  <div class="result-team">FC Walczaki</div>
+                </div>
+                <div class="result-status win">Wygrana</div>
+              </summary>
+              <div class="match-details-body">
+                <div class="match-details-title">Oceny i statystyki zawodników</div>
+                <div class="match-player-list">
+                  <div class="match-player">
+                    <strong>Wojciech R.</strong>
+                    <span class="match-stat">⚽ 2 gole</span>
+                    <span class="match-stat">Asysty: 0</span>
+                    <span class="match-rating">7.7</span>
+                  </div>
+                  <div class="match-player">
+                    <strong>Mateusz R.</strong>
+                    <span class="match-stat">⚽ 1 gol</span>
+                    <span class="match-stat">🅰 2 asysty</span>
+                    <span class="match-rating">9.1</span>
+                  </div>
+                </div>
               </div>
-              <div class="result-status win">Wygrana</div>
-            </article>
+            </details>
 
-            <article class="result-card">
-              <div class="result-date">14 maja 2026</div>
-              <div class="result-main">
-                <div class="result-team">Osiedle F.C.</div>
-                <div class="result-score">10 – 0</div>
-                <div class="result-team">FC No Name</div>
+            <details class="match-details">
+              <summary class="result-card">
+                <div class="result-date">14 maja 2026</div>
+                <div class="result-main">
+                  <div class="result-team">Osiedle F.C.</div>
+                  <div class="result-score">10 – 0</div>
+                  <div class="result-team">FC No Name</div>
+                </div>
+                <div class="result-status win">Wygrana</div>
+              </summary>
+              <div class="match-details-body">
+                <div class="match-details-title">Oceny i statystyki zawodników</div>
+                <div class="match-player-list">
+                  <div class="match-player">
+                    <strong>Wojciech R.</strong>
+                    <span class="match-stat">⚽ 3 gole</span>
+                    <span class="match-stat">🅰 1 asysta</span>
+                    <span class="match-rating">8.8</span>
+                  </div>
+                  <div class="match-player">
+                    <strong>Mateusz R.</strong>
+                    <span class="match-stat">⚽ 2 gole</span>
+                    <span class="match-stat">🅰 1 asysta</span>
+                    <span class="match-rating">8.4</span>
+                  </div>
+                </div>
               </div>
-              <div class="result-status win">Wygrana</div>
-            </article>
+            </details>
           </div>
 
           <div class="results-month">
             <div class="results-month-title">Czerwiec 2026</div>
 
-            <article class="result-card">
-              <div class="result-date">13 czerwca 2026</div>
-              <div class="result-main">
-                <div class="result-team">Osiedle F.C.</div>
-                <div class="result-score">8 – 2</div>
-                <div class="result-team">SP11</div>
+            <details class="match-details">
+              <summary class="result-card">
+                <div class="result-date">13 czerwca 2026</div>
+                <div class="result-main">
+                  <div class="result-team">Osiedle F.C.</div>
+                  <div class="result-score">8 – 2</div>
+                  <div class="result-team">SP11</div>
+                </div>
+                <div class="result-status loss">Porażka</div>
+              </summary>
+              <div class="match-details-body">
+                <div class="match-details-title">Oceny i statystyki zawodników</div>
+                <div class="match-player-list">
+                  <div class="match-player">
+                    <strong>Mateusz R.</strong>
+                    <span class="match-stat">⚽ 1 gol</span>
+                    <span class="match-stat">Asysty: 0</span>
+                    <span class="match-rating">7.3</span>
+                  </div>
+                  <div class="match-player">
+                    <strong>Wojciech R.</strong>
+                    <span class="match-stat">Gole: 0</span>
+                    <span class="match-stat">Asysty: 0</span>
+                    <span class="match-rating">6.1</span>
+                  </div>
+                  <div class="match-player">
+                    <strong>Fabian B.</strong>
+                    <span class="match-stat">Gole: 0</span>
+                    <span class="match-stat">Asysty: 0</span>
+                    <span class="match-rating">6.6</span>
+                  </div>
+                </div>
               </div>
-              <div class="result-status loss">Porażka</div>
-            </article>
+            </details>
           </div>
         </div>
       </div>
